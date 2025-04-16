@@ -2,6 +2,7 @@ account_card = input("Введите номер счета/карты ")
 
 
 def mask_account_card(account_card: str) -> str:
+    """создаем функцию которая получает номер карты / счета и возвращает замаскированную версию"""
     mask_variant = ""
     for sign in account_card:
         if sign.isalpha() == True or sign.isspace() == True:
@@ -21,6 +22,7 @@ date_input = input("Введите дату ")
 
 
 def get_date(date_input: str) -> str:
+    """создаем функцию которая перобразует полученную дату в требуемую форму"""
     date = f"{(date_input[0:10].split("-"))[2]}.{(date_input[0:10].split("-"))[1]}.{(date_input[0:10].split("-"))[0]}"
     return date
 
