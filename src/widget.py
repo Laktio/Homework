@@ -1,24 +1,17 @@
-account_card = input("Введите номер счета/карты ")
+from src.masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(account_card: str) -> str:
     """создаем функцию которая получает номер карты / счета и возвращает замаскированную версию"""
     mask_variant = ""
-    for sign in account_card:
-        if sign.isalpha() == True or sign.isspace() == True:
-            mask_variant += sign
     if account_card[-20:].isdigit() == True:
-        mask_variant = mask_variant + "**" + account_card[-4:]
+        mask_variant = get_mask_account(account_card)
     else:
-        mask_variant = (
-            mask_variant + account_card[-16:-12] + " " + account_card[-12:-10] + "** **** " + account_card[-4:]
-        )
+        mask_variant = get_mask_card_number(account_card)
     return mask_variant
 
 
-print(mask_account_card(account_card))
-
-date_input = input("Введите дату ")
+print(mask_account_card("64686473678894779589"))
 
 
 def get_date(date_input: str) -> str:
@@ -27,4 +20,4 @@ def get_date(date_input: str) -> str:
     return date
 
 
-print(get_date(date_input))
+print(get_date("2024-03-11T02:26:18.671407"))
