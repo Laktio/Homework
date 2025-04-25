@@ -1,6 +1,6 @@
 def filter_by_state(account_list: list, state: str ='EXECUTED') -> list:
     """функция принимает список словарей с данными по операциям по счетам и выводит
-    список словарей если ключ 'state' совпадает с указанным у условии"""
+    список словарей только тех операций состояние ('state') которых вводному параметру"""
     account_list_state = []
     for account in account_list:
         if account['state'] == state:
