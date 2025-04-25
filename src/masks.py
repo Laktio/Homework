@@ -18,7 +18,11 @@ def get_mask_card_number(card_number: str) -> str:
 
 def get_mask_account(account: str) -> str:
     """Функция принимает номер cxtnf и выводит замаскированную версию"""
-    mask_account = f"**{account[-4:]}"
+    mask_variant = ""
+    for sign in account:
+        if sign.isalpha() == True or sign.isspace() == True:
+            mask_variant += sign
+    mask_account = f"{mask_variant}**{account[-4:]}"
     return mask_account
 
 

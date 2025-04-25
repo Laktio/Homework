@@ -11,7 +11,7 @@ def mask_account_card(account_card: str) -> str:
     return mask_variant
 
 
-print(mask_account_card("64686473678894779589"))
+print(mask_account_card("Счет 64686473678894779589"))
 
 
 def get_date(date_input: str) -> str:
