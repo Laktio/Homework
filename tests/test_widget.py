@@ -1,6 +1,6 @@
 import pytest
 
-from src.widget import mask_account_card
+from src.widget import mask_account_card, get_date
 
 
 @pytest.mark.parametrize("account_card, exception", [
@@ -20,3 +20,15 @@ from src.widget import mask_account_card
 ])
 def test_mask_account_card(account_card, exception):
     assert mask_account_card(account_card) == exception
+
+
+@pytest.mark.parametrize("date_input, exception", [
+    ("2024-03-11T02:26:18.671407", "11.03.2024"),
+    ("2022-01-25T02:26:18.671407", "25.01.2022"),
+    ("2025-01-01T02:26:18.671407", "01.01.2025"),
+    ("25-01-01T02:26:18.671407", "Введен некорректный формат даты!"),
+    ("AB25-01-01T02:26:18.671407", "Введен некорректный формат даты!"),
+    ("", "Данные не были введены!")
+])
+def test_get_date(date_input, exception):
+    assert get_date(date_input) == exception
