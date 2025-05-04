@@ -13,7 +13,7 @@ from src.masks import get_mask_card_number, get_mask_account
     ("", "Данные не были введены!"),
     ("Visa Gold asdf414228426353", "Номер карты введен неверно!")
 ])
-def test_get_mask_card_number(card_number, exception):
+def test_get_mask_card_number(card_number: str, exception: str) -> None:
     assert get_mask_card_number(card_number) == exception
 
 
@@ -26,5 +26,5 @@ def test_get_mask_card_number(card_number, exception):
     ("", "Данные не были введены!"),
     ("Счет 7365410843013587asdf", "Номер счета введен неверно!")
 ])
-def test_get_mask_account(account, exception):
+def test_get_mask_account(account: str, exception: str) -> None:
     assert get_mask_account(account) == exception

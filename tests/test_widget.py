@@ -1,3 +1,5 @@
+from typing import Union
+
 import pytest
 
 from src.widget import mask_account_card, get_date
@@ -18,7 +20,7 @@ from src.widget import mask_account_card, get_date
     ("Счет 7365410843013587abcd", "Номер счета введен неверно!"),
     ("Visa Gold abcd414228426353", "Номер карты введен неверно!")
 ])
-def test_mask_account_card(account_card, exception):
+def test_mask_account_card(account_card: str, exception: str) -> None:
     assert mask_account_card(account_card) == exception
 
 
@@ -30,5 +32,5 @@ def test_mask_account_card(account_card, exception):
     ("AB25-01-01T02:26:18.671407", "Введен некорректный формат даты!"),
     ("", "Данные не были введены!")
 ])
-def test_get_date(date_input, exception):
+def test_get_date(date_input: str, exception: str) -> None:
     assert get_date(date_input) == exception
