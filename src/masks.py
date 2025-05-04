@@ -9,7 +9,7 @@ def get_mask_card_number(card_number: str) -> str:
         return "Номер карты введен неверно!"
     if card_number == "":
         return "Данные не были введены!"
-    if card_number[-16: -1].isdigit() == False:
+    if card_number[-16: -1].isdigit() is False:
         return "Номер карты введен неверно!"
     card_number_mask = mask_variant + card_number[-16:-12] + " " + card_number[-12:-10] + "** **** " + card_number[-4:]
     return card_number_mask
@@ -28,7 +28,7 @@ def get_mask_account(account: str) -> str:
         return "Номер счета введен неверно!"
     if account == "":
         return "Данные не были введены!"
-    if account[-20: -1].isdigit() == False:
+    if account[-20: -1].isdigit() is False:
         return "Номер счета введен неверно!"
     mask_account = f"{mask_variant}**{account[-4:]}"
     return mask_account
