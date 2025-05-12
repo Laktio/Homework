@@ -99,9 +99,9 @@ def transaction_descriptions(list_transactions:list) -> Generator[Any, Any, None
     return (transaction["description"] for transaction in list_transactions)
 
 
-# descriptions = transaction_descriptions(transactions)
-# for _ in range(5):
-#     print(next(descriptions))
+descriptions = transaction_descriptions(transactions)
+for _ in range(5):
+    print(next(descriptions))
 
 
 def card_number_generator(start:int, stop:int) -> list[str]:
