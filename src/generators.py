@@ -104,8 +104,18 @@ def transaction_descriptions(list_transactions:list) -> Generator[Any, Any, None
 #     print(next(descriptions))
 
 
-def card_number_generator():
-    n = 0
-    while True:
-        n = 0
+def card_number_generator(start:int, stop:int) -> list[str]:
+    """функция генератор который выдает на выход номера банковский карт"""
+    card_number_iter = [x for x in range(start, stop+1)]
+    card_number = []
+    for number in card_number_iter:
+        card = (f"{number:016d}")
+        card = (f"{card[0:4]} {card[4:8]} {card[8:12]} {card[12:16]}")
+        card_number.append(card)
+    return card_number
+
+
+# for card_number in card_number_generator(1, 5):
+#     print(card_number)
+
 
