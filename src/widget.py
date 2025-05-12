@@ -20,9 +20,13 @@ def get_date(date_input: str) -> str:
         return "Данные не были введены!"
     if len(date_input) != 26:
         return "Введен некорректный формат даты!"
-    date_without_points = f"{(date_input[0:10].split("-"))[2]}{(date_input[0:10].split("-"))[1]}{(date_input[0:10].split("-"))[0]}"
-    if date_without_points.isdigit() == True:
-        date = f"{(date_input[0:10].split("-"))[2]}.{(date_input[0:10].split("-"))[1]}.{(date_input[0:10].split("-"))[0]}"
+    date_without_points = (
+        f"{(date_input[0:10].split("-"))[2]}{(date_input[0:10].split("-"))[1]}{(date_input[0:10].split("-"))[0]}"
+    )
+    if date_without_points.isdigit() is True:
+        date = (
+            f"{(date_input[0:10].split("-"))[2]}.{(date_input[0:10].split("-"))[1]}.{(date_input[0:10].split("-"))[0]}"
+        )
         return date
     else:
         return "Введен некорректный формат даты!"
