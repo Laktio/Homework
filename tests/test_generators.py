@@ -1,4 +1,6 @@
-from typing import Any, Generator
+import pytest
+
+from src.generators import filter_by_currency
 
 transactions = (
     [
@@ -81,41 +83,11 @@ transactions = (
 )
 
 
-def filter_by_currency(list_transactions:list, currency:str) -> Generator[Any, Any, None]:
-    """функция получает на вход список словарей с данными о транзакции и выдает на выход генератор только
-    тех транзакций которые содержат определенный тип валюты ("currency")"""
-    return (transaction for transaction in list_transactions if
-            transaction["operationAmount"]["currency"]["code"] == currency)
+def test_filter_by_currency():
+    generator = filter_by_currency(transactions, "USD")
+    assert next(generator) == {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572', 'operationAmount': {'amount': '9824.07', 'currency': {'name': 'USD', 'code': 'USD'}}, 'description': 'Перевод организации', 'from': 'Счет 75106830613657916952', 'to': 'Счет 11776614605963066702'}
+    assert next(generator) == {'id': 142264268, 'state': 'EXECUTED', 'date': '2019-04-04T23:20:05.206878', 'operationAmount': {'amount': '79114.93', 'currency': {'name': 'USD', 'code': 'USD'}}, 'description': 'Перевод со счета на счет', 'from': 'Счет 19708645243227258542', 'to': 'Счет 75651667383060284188'}
+    assert next(generator) == {'id': 895315941, 'state': 'EXECUTED', 'date': '2018-08-19T04:27:37.904916', 'operationAmount': {'amount': '56883.54', 'currency': {'name': 'USD', 'code': 'USD'}}, 'description': 'Перевод с карты на карту', 'from': 'Visa Classic 6831982476737658', 'to': 'Visa Platinum 8990922113665229'}
 
 
-# usd_transactions = filter_by_currency(transactions, "USD")
-# for _ in range(5):
-#     print(next(usd_transactions))
-
-
-def transaction_descriptions(list_transactions:list) -> Generator[Any, Any, None]:
-    """функция получает на вход список словарей с данными о транзакции и выдает на выход генератор описаний (значений
-    по ключу "description") """
-    return (transaction["description"] for transaction in list_transactions)
-
-
-# descriptions = transaction_descriptions(transactions)
-# for _ in range(5):
-#     print(next(descriptions))
-
-
-def card_number_generator(start:int, stop:int) -> list[str]:
-    """функция генератор который выдает на выход номера банковский карт"""
-    card_number_iter = [x for x in range(start, stop+1)]
-    card_number = []
-    for number in card_number_iter:
-        card = (f"{number:016d}")
-        card = (f"{card[0:4]} {card[4:8]} {card[8:12]} {card[12:16]}")
-        card_number.append(card)
-    return card_number
-
-
-# for card_number in card_number_generator(1, 5):
-#     print(card_number)
-
-
+def
