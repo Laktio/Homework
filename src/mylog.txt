@@ -1,0 +1,2 @@
+2025-05-14 14:45:57,022 DEBUG my_function error: TypeError. Inputs (1, '2'), {}
+2025-05-14 14:46:54,808 DEBUG my_function is ok
