@@ -11,17 +11,17 @@ def log(filename=None):
                                 format="%(asctime)s %(levelname)s %(message)s")
                 try:
                     func(*args, **kwargs)
-                except TypeError:
-                    logging.debug(f"{func.__name__} error: TypeError. Inputs {args}, {kwargs}")
-                else:
                     logging.debug(f"{func.__name__} is ok")
+                except Exception:
+                    logging.debug(f"{func.__name__} error: TypeError. Inputs {args}, {kwargs}")
+                    raise Exception("error")
             elif filename == None:
                 try:
                     func(*args)
-                except TypeError:
-                    return(f"{func.__name__} error: TypeError. Inputs {args}, {kwargs}")
-                else:
-                    return(f"{func.__name__} is ok")
+                    print (f"{func.__name__} is ok")
+                except Exception:
+                    print(f"{func.__name__} error: TypeError. Inputs {args}, {kwargs}")
+                    raise Exception("error")
         return wrapper
     return decorator
 
@@ -31,4 +31,4 @@ def my_function(x, y):
     """Проверочная функция работы декоратора"""
     return x + y
 
-print(my_function(1, 2))
+# print(my_function(1, "2"))
