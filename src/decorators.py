@@ -3,7 +3,7 @@ import logging
 from mypy.types import UnionType
 
 
-def log(filenamee=None):
+def log(filename=None):
     """Функция декоратор для логирования работы функций в файл (если в параметрах декоратора указан файл)
     или в консоль"""
     def decorator(func):
@@ -34,10 +34,10 @@ def log(filenamee=None):
     return decorator
 
 
-@log(filename="mylog.txt")
-def my_function(x, y):
-    """Проверочная функция работы декоратора"""
-    return x + y
+# @log(filename="mylog.txt")
+# def my_function(x, y):
+#     """Проверочная функция работы декоратора"""
+#     return x + y
 
 
 # print(my_function(1, "2"))
