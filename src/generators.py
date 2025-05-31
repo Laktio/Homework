@@ -51,8 +51,7 @@ transactions = [
 
 def filter_by_currency(list_transactions: list, currency: str) -> str | Generator[Any, Any, None]:
     """функция получает на вход список словарей с данными о транзакции и выдает на выход генератор только
-    тех транзакций которые содержат определенный тип валюты ("currency")
-    :rtype: object"""
+    тех транзакций которые содержат определенный тип валюты ("currency") :rtype: object"""
     return (
         transaction
         for transaction in list_transactions
@@ -77,15 +76,15 @@ def transaction_descriptions(list_transactions: list) -> Generator[Any, Any, Non
 
 
 def card_number_generator(start: int, stop: int) -> list[str]:
-    """функция генератор который выдает на выход номера банковский карт"""
+    """функция генератор который выдает на выход номера банковских карт"""
     card_number_iter = [x for x in range(start, stop + 1)]
     card_number = []
     for number in card_number_iter:
-        card = f"{number:016d}"
+        card = f"{number:016}"
         card = f"{card[0:4]} {card[4:8]} {card[8:12]} {card[12:16]}"
         card_number.append(card)
     return card_number
 
-
+#
 # for card_number in card_number_generator(1, 5):
 #     print(card_number)
