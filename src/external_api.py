@@ -1,6 +1,9 @@
 import requests
 import utils
 import json
+from dotenv import load_dotenv
+import os
+
 
 def external_api(transaction: dict):
     """функция принимает в качестве аргумента словарь из списка словарей из файла operations.json
@@ -16,9 +19,11 @@ def external_api(transaction: dict):
             "from": transaction["operationAmount"]["currency"]["code"],
             "to": "RUB"
         }
+        load_dotenv()
+        api_key = os.getenv("API_KEY")
 
         headers= {
-          "apikey": "HFnk0WdgKxXiPK4Rkl4qQvddRvu3CJ9O"
+          "apikey": api_key
         }
 
         response = requests.get(url, headers=headers, params=payload)
@@ -30,7 +35,5 @@ def external_api(transaction: dict):
         return round(float(result_dict['result']), 2)
 
 
-trans = utils.operations_transform('../data/operations.json')[1]
-print(external_api(trans))
-
-#
+# trans = utils.operations_transform('../data/operations.json')[1]
+# print(external_api(trans))
