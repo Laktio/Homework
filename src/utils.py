@@ -1,4 +1,5 @@
 import json
+
 import data #'../data/operations.json'
 
 
@@ -23,3 +24,4 @@ def operations_transform(operations_file:list) -> list:
 
 
 # print(operations_transform('../data/operations.json'))
+
