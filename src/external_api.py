@@ -1,11 +1,11 @@
 import requests
-import utils
+from src.utils import operations_transform
 import json
 from dotenv import load_dotenv
 import os
 
 
-def external_api(transaction: dict):
+def exchange_currency(transaction: dict):
     """функция принимает в качестве аргумента словарь из списка словарей из файла operations.json
     (результат работы функции operations_transform() c указанием индекса конкретной транзации,
     и выдает стоимость (amount) в рублях (RUB)"""
@@ -29,11 +29,13 @@ def external_api(transaction: dict):
         response = requests.get(url, headers=headers, params=payload)
 
         status_code = response.status_code
-        result = response.text
-        result_dict = json.loads(result)
+        result = response.json()
+        # result_dict = json.loads(result)
 
-        return round(float(result_dict['result']), 2)
+        return round(float(result['result']), 2)
+        # return response
 
 
-# trans = utils.operations_transform('../data/operations.json')[1]
-# print(external_api(trans))
+# trans = operations_transform('../data/operations.json')[1]
+# print(exchange_currency(trans))
+
