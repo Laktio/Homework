@@ -1,5 +1,4 @@
 import pytest
-from mypy.types import NoneType
 
 from src.decorators import log
 

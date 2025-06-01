@@ -1,14 +1,13 @@
 import logging
 
-from mypy.types import UnionType
-
 
 def log(filename=None):
     """Функция декоратор для логирования работы функций в файл (если в параметрах декоратора указан файл)
     или в консоль"""
+
     def decorator(func):
         def wrapper(*args, **kwargs):
-            if filename != None:
+            if filename is not None:
                 logging.basicConfig(
                     filename="mylog.txt",
                     level=logging.DEBUG,
@@ -21,7 +20,7 @@ def log(filename=None):
                 except Exception:
                     logging.debug(f"{func.__name__} error: TypeError. Inputs {args}, {kwargs}")
                     raise Exception("error")
-            elif filename == None:
+            elif filename is None:
                 try:
                     func(*args)
                     print(f"{func.__name__} is ok")
