@@ -9,14 +9,16 @@ def log(filename=None):
         def wrapper(*args, **kwargs):
             if filename is not None:
                 logging.basicConfig(
-                    filename="mylog.txt",
+                    filename=filename,
                     level=logging.DEBUG,
-                    filemode="a",
-                    format="%(asctime)s %(levelname)s %(message)s",
+                    filemode="w",
+                    format="%(asctime)s %(levelname)s %(filename)s %(funcName)s %(message)s",
                 )
                 try:
                     func(*args, **kwargs)
-                    logging.debug(f"{func.__name__} is ok")
+                    result = func(*args, **kwargs)
+                    logging.debug(f"{func.__name__} is ok, result is {result}")
+                    return result
                 except Exception:
                     logging.debug(f"{func.__name__} error: TypeError. Inputs {args}, {kwargs}")
                     raise Exception("error")
@@ -24,9 +26,11 @@ def log(filename=None):
                 try:
                     func(*args)
                     print(f"{func.__name__} is ok")
+                    return None
                 except Exception:
                     print(f"{func.__name__} error: TypeError. Inputs {args}, {kwargs}")
                     raise Exception("error")
+            return None
 
         return wrapper
 
