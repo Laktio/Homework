@@ -1,7 +1,6 @@
 import os
 
 import requests
-
 # from src.utils import operations_transform
 # import json
 from dotenv import load_dotenv

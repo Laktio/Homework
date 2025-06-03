@@ -1,7 +1,11 @@
 import json
+
+import mypy.types
+
 from decorators import log
 
 # import data   # '../data/operations.json'
+
 
 @log(filename="../logs/utils.log")
 def operations_transform(operations_file: list) -> list:
@@ -25,4 +29,4 @@ def operations_transform(operations_file: list) -> list:
         return []
 
 
-print(operations_transform('../data/operations.json'))
+print(operations_transform("../data/operations.json"))

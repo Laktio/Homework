@@ -20,7 +20,7 @@ def log(filename=None):
                     logging.debug(f"{func.__name__} is ok, result is {result}")
                     return result
                 except Exception:
-                    logging.debug(f"{func.__name__} error: TypeError. Inputs {args}, {kwargs}")
+                    logging.error(f"{func.__name__} error: TypeError. Inputs {args}, {kwargs}")
                     raise Exception("error")
             elif filename is None:
                 try:
