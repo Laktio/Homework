@@ -1,4 +1,1 @@
-2025-05-14 16:33:18,968 DEBUG my_function error: TypeError. Inputs (1, '2'), {}
-2025-05-14 16:34:01,037 DEBUG my_function error: TypeError. Inputs (1, '2'), {}
-2025-05-14 16:35:01,372 DEBUG my_function is ok
-2025-05-14 16:35:10,792 DEBUG my_function error: TypeError. Inputs (1, '2'), {}
+2025-06-04 01:20:19,109 DEBUG get_mask_card_number is ok

@@ -1,8 +1,13 @@
 import json
 
+import mypy.types
+
+from decorators import log
+
 # import data   # '../data/operations.json'
 
 
+@log(filename="../logs/utils.log")
 def operations_transform(operations_file: list) -> list:
     """Данная функция принимет путь к файлу JSON из дирректории data преобразует данные json
     в данные python и выводит их в виде списка. обрабатывает ошибки возникающие если файл
@@ -24,4 +29,4 @@ def operations_transform(operations_file: list) -> list:
         return []
 
 
-# print(operations_transform('../data/operations.json'))
+print(operations_transform("../data/operations.json"))
