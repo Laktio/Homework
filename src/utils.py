@@ -27,4 +27,4 @@ def operations_transform(operations_file: list) -> list:
         return []
 
 
-# print(operations_transform("../data/operations.json")[0])
+# print(operations_transform("../data/operations.json"))
