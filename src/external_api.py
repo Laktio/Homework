@@ -35,5 +35,5 @@ def exchange_currency(transaction: dict):
         # return response
 
 
-trans = operations_transform('../data/operations.json')[1]
+trans = operations_transform('../data/operations.json')[0]
 print(exchange_currency(trans))

@@ -14,11 +14,11 @@ from src.widget import get_date, mask_account_card
         ("Visa Platinum 8990922113665229", "Visa Platinum 8990 92** **** 5229"),
         ("Visa Gold 5999414228426353", "Visa Gold 5999 41** **** 6353"),
         ("Счет 73654108430135874305", "Счет **4305"),
-        ("", "Данные не были введены!"),
-        ("Счет 736541084301358743051111", "Номер счета введен неверно!"),
-        ("Visa Gold 59994142284263531111", "Номер карты введен неверно!"),
-        ("Счет 7365410843013587abcd", "Номер счета введен неверно!"),
-        ("Visa Gold abcd414228426353", "Номер карты введен неверно!"),
+        ("", "no input data!"),
+        ("Счет 736541084301358743051111", "invalid account number!"),
+        ("Visa Gold 59994142284263531111", "invalid card number!"),
+        ("Счет 7365410843013587abcd", "invalid account number!"),
+        ("Visa Gold abcd414228426353", "invalid card number!"),
     ],
 )
 def test_mask_account_card(account_card: str, exception: str) -> None:

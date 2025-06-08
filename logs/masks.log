@@ -1,1 +1,1 @@
-2025-06-06 18:36:59,669 DEBUG decorators.py wrapper get_mask_card_number is ok, result is invalid card number!
+2025-06-08 17:50:07,178 DEBUG decorators.py wrapper get_mask_card_number is ok, result is Maestro 1596 83** **** 5199
