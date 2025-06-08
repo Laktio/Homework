@@ -1,8 +1,7 @@
 from unittest.mock import patch
 
 from src.external_api import exchange_currency
-from src.utils import operations_transform
-
+# from src.utils import operations_transform
 
 # def test_exchange_currency_1():
 #     '''Тестирование функции exchange_currency() если валюта (currency) в
@@ -14,8 +13,8 @@ from src.utils import operations_transform
 
 @patch("requests.get")
 def test_exchange_currency_2(mock_get):
-    '''Тестирование функции exchange_currency() если валюта (currency) в транзакции
-    не в рублях и нужна конвертация'''
+    """Тестирование функции exchange_currency() если валюта (currency) в транзакции
+    не в рублях и нужна конвертация"""
     mock_get.return_value.json.return_value = {
         "success": True,
         "query": {"from": "USD", "to": "RUB", "amount": 8221.37},

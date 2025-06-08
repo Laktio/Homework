@@ -1,7 +1,5 @@
 import json
 
-import mypy.types
-
 from src.decorators import log
 
 

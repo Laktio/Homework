@@ -1,6 +1,6 @@
 from unittest.mock import Mock, mock_open, patch
 
-from src.utils import operations_transform, log
+from src.utils import operations_transform
 
 
 def test_operations_transform_1():
