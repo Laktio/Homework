@@ -2,7 +2,7 @@ import json
 
 import mypy.types
 
-from decorators import log
+from src.decorators import log
 
 
 @log(filename="../logs/utils.log")

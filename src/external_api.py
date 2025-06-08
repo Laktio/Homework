@@ -1,8 +1,8 @@
 import os
 
 import requests
-# from src.utils import operations_transform
-# import json
+from src.utils import operations_transform
+import json
 from dotenv import load_dotenv
 
 
@@ -35,5 +35,5 @@ def exchange_currency(transaction: dict):
         # return response
 
 
-# trans = operations_transform('../data/operations.json')[1]
-# print(exchange_currency(trans))
+trans = operations_transform('../data/operations.json')[1]
+print(exchange_currency(trans))
