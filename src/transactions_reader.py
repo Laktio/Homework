@@ -46,4 +46,4 @@ def excel_operation(file_path: str) -> list[dict]:
         return []
 
 
-print(excel_operation("../data/transactions_excel.xlsx"))
+# print(excel_operation("../data/transactions_excel.xlsx"))
