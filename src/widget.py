@@ -3,7 +3,7 @@ from src.masks import get_mask_account, get_mask_card_number
 
 def mask_account_card(account_card: str) -> str:
     """создаем функцию которая получает номер карты / счета и возвращает замаскированную версию"""
-    mask_variant = ""
+
     if "Счет" in account_card:
         mask_variant = get_mask_account(account_card)
     else:
@@ -11,7 +11,7 @@ def mask_account_card(account_card: str) -> str:
     return mask_variant
 
 
-# print(mask_account_card("Visa Gold abcd414228426353"))
+print(mask_account_card("Visa Classic 6831982476737658"))
 
 
 def get_date(date_input: str) -> str:
@@ -32,4 +32,4 @@ def get_date(date_input: str) -> str:
         return "Введен некорректный формат даты!"
 
 
-# print(get_date("as24-03-11T02:26:18.671407"))
+# print(get_date("2018-06-30T02:08:58.425572"))
