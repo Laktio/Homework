@@ -23,10 +23,7 @@ def search_filter(operations:str, search_string:str):
     return search_list
 
 
-# print(search_filter("../data/operations.json", str(input('''
-#     Введите статус, по которому необходимо выполнить фильтрацию. Доступные для фильтровки статусы:
-#     EXECUTED, CANCELED, PENDING
-#     '''))))
+# print(search_filter("C:\\Users\\ber_l\\OneDrive\\Рабочий стол\\Python\\Projects\\Homework\\data\\transactions.csv", "CANCELED"))
 
 
 def category_filter(operations:str, categories:list):
@@ -50,8 +47,8 @@ def category_filter(operations:str, categories:list):
             if search_result is not None:
                 categories_list.append(operation.get('description'))
     counted_category_list = Counter(categories_list)
-    return counted_category_list
+    return str(counted_category_list)
 
 
-# print(category_filter('../data/transactions.csv',
-#                       ['Перевод организации', 'Перевод с карты на карту']))
+print(category_filter('../data/transactions.csv',
+                      ['Перевод организации', 'Перевод с карты на карту']))
