@@ -3,7 +3,7 @@ import json
 from src.decorators import log
 
 
-@log(filename="../logs/utils.log")
+@log(filename='C:\\Users\\ber_l\\OneDrive\\Рабочий стол\\Python\\Projects\\Homework\\logs\\utils.log')
 def operations_transform(operations_file:str) -> list:
     """Данная функция принимaет путь к файлу JSON из дирректории data преобразует данные json
     в данные python и выводит их в виде списка. обрабатывает ошибки возникающие если файл

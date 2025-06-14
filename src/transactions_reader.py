@@ -5,7 +5,7 @@ import pandas as pd
 from src.decorators import log
 
 
-@log(filename="../logs/transaction_reader.log")
+@log(filename="C:\\Users\\ber_l\\OneDrive\\Рабочий стол\\Python\\Projects\\Homework\\logs\\transaction_reader.log")
 def csv_operations(file_path: str) -> list[dict]:
     """Функция принимет путь к файлу формата CSV и после считывания выдает список
     словарей, где ключи это заголовок таблицы, а значения это содержимое рядов
@@ -32,7 +32,7 @@ def csv_operations(file_path: str) -> list[dict]:
 # print(csv_operations('../data/transactions.csv'))
 
 
-@log(filename="../logs/transaction_reader.log")
+@log(filename="C:\\Users\\ber_l\\OneDrive\\Рабочий стол\\Python\\Projects\\Homework\\logs\\transaction_reader.log")
 def excel_operation(file_path: str) -> list[dict]:
     """Функция принимет путь к файлу формата Excel и после считывания выдает список
     словарей, где ключи это заголовок таблицы, а значения это содержимое рядов

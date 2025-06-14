@@ -5,7 +5,7 @@ from src.decorators import log
 def get_mask_card_number(card_number: str) -> str:
     """Функция принимает номер карты без пробелов и выводит замаскированную версию с пробелами"""
     mask_variant = ""
-    for sign in card_number:
+    for sign in str(card_number):
         if sign.isalpha() is True or sign.isspace() is True:
             mask_variant += sign
     if len(card_number) - len(mask_variant) != 16 and len(card_number) > 0:

@@ -23,7 +23,7 @@ def search_filter(operations:str, search_string:str):
     return search_list
 
 
-# print(search_filter("../data/transactions_excel.xlsx", str(input('''
+# print(search_filter("../data/operations.json", str(input('''
 #     Введите статус, по которому необходимо выполнить фильтрацию. Доступные для фильтровки статусы:
 #     EXECUTED, CANCELED, PENDING
 #     '''))))
