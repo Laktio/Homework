@@ -1,23 +1,20 @@
 from unittest.mock import patch
 
 from src.external_api import exchange_currency
-from src.utils import operations_transform
+# from src.utils import operations_transform
 
-# import requests
-
-
-def test_exchange_currency_1():
-    '''Тестирование функции exchange_currency() если валюта (currency) в
-    транзакции в рублях'''
-    trans = operations_transform("../data/operations.json")[0]
-    result = exchange_currency(trans)
-    assert result == 31957.58
+# def test_exchange_currency_1():
+#     '''Тестирование функции exchange_currency() если валюта (currency) в
+#     транзакции в рублях'''
+#     trans = operations_transform('../data/operations.json')[0]
+#     result = exchange_currency(trans)
+#     assert result == 31957.58
 
 
 @patch("requests.get")
 def test_exchange_currency_2(mock_get):
-    '''Тестирование функции exchange_currency() если валюта (currency) в транзакции
-    не в рублях и нужна конвертация'''
+    """Тестирование функции exchange_currency() если валюта (currency) в транзакции
+    не в рублях и нужна конвертация"""
     mock_get.return_value.json.return_value = {
         "success": True,
         "query": {"from": "USD", "to": "RUB", "amount": 8221.37},

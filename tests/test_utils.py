@@ -2,9 +2,6 @@ from unittest.mock import Mock, mock_open, patch
 
 from src.utils import operations_transform
 
-# import pytest
-# import json
-
 
 def test_operations_transform_1():
     mock_open = Mock(return_value=[])
